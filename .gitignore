@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Experiment tracking
+wandb/
+
+# Local datasets / large artifacts
+*.pkl
+*.pkl.gz
+
