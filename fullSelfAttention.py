@@ -6,9 +6,18 @@ import torch.optim as optim
 
 from torch.utils.data import Dataset, DataLoader
 
+import optuna
+from optuna_integration.wandb import WeightsAndBiasesCallback
 import wandb
+ 
 
 from raw import load_imdb_synth, load_xor
+
+ENTITY  = "dionmutarisi-vrije-universiteit-amsterdam"
+PROJECT = "transformer-3b"
+DEVICE  = "cuda" if torch.cuda.is_available() else "cpu"
+ 
+
 
 
 
@@ -500,3 +509,8 @@ if __name__ == "__main__":
     print("\nFinal comparison summary")
     print(f"IMDb-synth | simple: {synth_simple:.4f} | full: {synth_full:.4f}")
     print(f"XOR        | simple: {xor_simple:.4f} | full: {xor_full:.4f}")
+
+
+
+
+
