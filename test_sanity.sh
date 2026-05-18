@@ -23,7 +23,7 @@ module load cuda12.3/toolkit
 module load cuDNN/cuda12.3
 
 source $HOME/.bashrc
-conda activate
+conda activate dl_assignment
 
 echo "=== GPU check ==="
 python -c "
@@ -46,7 +46,7 @@ mkdir -p $HOME/experiments/test
 cd $HOME/experiments/test
 
 echo "=== Short training run (500 steps) ==="
-python /var/scratch/$USER/transformer_train.py \
+python /var/scratch/$USER/Transformer_project/transformer_train.py \
     --mode toy \
     --emb 128 \
     --heads 4 \

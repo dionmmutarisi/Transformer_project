@@ -340,9 +340,8 @@ if __name__ == "__main__":
     else:
         # Wikipedia — 256-byte vocabulary
         (td, vd), _ = load_wp(final=False)
-        to_ids = lambda s: [c if isinstance(c, int) else ord(c) for c in s]
-        train_t = torch.tensor(to_ids(td), dtype=torch.long)
-        val_t   = torch.tensor(to_ids(vd), dtype=torch.long)
+        train_t = torch.tensor(td, dtype=torch.long) if not isinstance(td, torch.Tensor) else td.long()
+        val_t   = torch.tensor(vd, dtype=torch.long) if not isinstance(vd, torch.Tensor) else vd.long()
         vocab   = 256
         i2c     = {i: chr(i) for i in range(256)}
         print(f"Wikipedia: vocab={vocab}, train={len(train_t):,}, val={len(val_t):,}")

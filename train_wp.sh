@@ -26,7 +26,7 @@ module load cuDNN/cuda12.3
 
 # Activate conda — installed on scratch as per the guide
 source $HOME/.bashrc
-conda activate
+conda activate dl_assignment
 
 # Verify GPU is visible — silent failures are common, always check this
 python -c "import torch; print('CUDA available:', torch.cuda.is_available()); print('Device:', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU')"
@@ -44,7 +44,7 @@ echo "Run dir:   $(pwd)"
 echo "Started:   $(date)"
 
 # Run training — Wikipedia data, larger model
-python /var/scratch/$USER/transformer_train.py \
+python /var/scratch/$USER/Transformer_project/transformer_train.py \
     --mode wp \
     --emb 512 \
     --heads 8 \
