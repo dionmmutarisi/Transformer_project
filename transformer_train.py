@@ -227,6 +227,8 @@ def train(train_data, val_data, i2c, vocab_size,
             print(f"\n── val: {val_bits:.4f} bits ──\n")
             if wandb_run:
                 wandb_run.log({"val_loss_bits": val_bits, "step": step})
+                torch.save(model.state_dict(), f'/home/dmu224/experiments/wp/checkpoint_{step}.pt')
+                print(f"Saved checkpoint_{step}.pt")
 
         if step % sample_every == 0 and val_data.size(0) > seed_len:
             start = torch.randint(0, val_data.size(0) - seed_len, (1,)).item()
