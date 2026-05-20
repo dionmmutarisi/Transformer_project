@@ -19,8 +19,8 @@ conda activate dl_assignment
 
 python -c "import torch; print('CUDA:', torch.cuda.is_available(), torch.cuda.get_device_name(0) if torch.cuda.is_available() else '')"
 
-mkdir -p $HOME/experiments/rope
-cd $HOME/experiments/rope
+mkdir -p /var/scratch/$USER/experiments/rope
+cd /var/scratch/$USER/experiments/rope
 mkdir -p run_${SLURM_JOB_ID}
 cd run_${SLURM_JOB_ID}
 

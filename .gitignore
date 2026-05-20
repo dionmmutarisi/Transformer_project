@@ -23,3 +23,8 @@ wandb/
 *.pkl
 *.pkl.gz
 
+*.pt
+*.gz
+wandb/
+logs/
+__pycache__/
