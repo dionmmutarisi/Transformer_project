@@ -262,9 +262,14 @@ def train(train_data, val_data, i2c, vocab_size,
             print(f"\n── val: {val_bits:.4f} bits ──\n")
             if wandb_run:
                 wandb_run.log({"val_loss_bits": val_bits, "step": step})
-            ckpt = f'/var/scratch/dmu224/experiments/checkpoint_step{step}.pt'
+            import os
+            ckpt = f'/var/scratch/dmu224/experiments/rope_large/checkpoint_step{step}.pt'
             torch.save(model.state_dict(), ckpt)
             print(f"Saved {ckpt}")
+            old = f'/var/scratch/dmu224/experiments/rope_large/checkpoint_step{step - 30000}.pt'
+            if os.path.exists(old):
+                os.remove(old)
+                print(f"Deleted {old}")
 
         if step % sample_every == 0 and val_data.size(0) > seed_len:
             start = torch.randint(0, val_data.size(0) - seed_len, (1,)).item()

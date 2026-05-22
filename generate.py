@@ -5,7 +5,7 @@ import sys
 
 from transformer_rope import AutoregressiveTransformer
 
-CHECKPOINT = "/var/scratch/dmu224/experiments/checkpoint_step200000.pt"
+CHECKPOINT = "~/Downloads/checkpoint_rope_large_200k.pt"
 VOCAB      = 256
 EMB, HEADS, DEPTH, CONTEXT = 512, 8, 6, 256
 DEVICE     = "cuda" if torch.cuda.is_available() else "cpu"
